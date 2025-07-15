@@ -81,29 +81,29 @@ El archivo .github/workflows/node-ci.yml define nuestro pipeline:
 name: Node.js CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+ push:
+    branches: [ main ]
+ pull_request:
+    branches: [ main ]
 
 jobs:
-  build-and-test:
+ build-and-test:
     runs-on: ubuntu-latest
-    
+ 
     steps:
-      - name: Clonar repositorio
-        uses: actions/checkout@v3
-      
-      - name: Configurar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      
-      - name: Instalar dependencias
-        run: npm ci
-      
-      - name: Ejecutar pruebas
-        run: npm test
+        - name: Clonar repositorio
+          uses: actions/checkout@v3
+ 
+        - name: Usar Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: '18'
+ 
+        - name: Instalar dependencias
+          run: npm install
+ 
+        - name: Ejecutar pruebas
+          run: npm test
 ```
 
 ---
@@ -202,16 +202,16 @@ permissions:
 ## Preguntas Frecuentes
 
 - ¿Cómo difiere GitHub Actions de Jenkins?
-- Configuración: Actions usa YAML (simple y versionado), Jenkins requiere Groovy
-- Arquitectura: Actions es serverless, Jenkins necesita servidores propios
-- Integración: Actions tiene soporte nativo para eventos de GitHub
+  - Configuración: Actions usa YAML (simple y versionado), Jenkins requiere Groovy
+  - Arquitectura: Actions es serverless, Jenkins necesita servidores propios
+  - Integración: Actions tiene soporte nativo para eventos de GitHub
 
 - ¿Qué otras tareas podrían automatizarse?
-- Generación de documentación automática
-- Notificaciones en Slack/Email
-- Escaneo de código estático (SonarQube)
-- Pruebas de rendimiento (Lighthouse)
-- Actualización automática de dependencias (Dependabot)
+  - Generación de documentación automática
+  - Notificaciones en Slack/Email
+  - Escaneo de código estático (SonarQube)
+  - Pruebas de rendimiento (Lighthouse)
+  - Actualización automática de dependencias (Dependabot)
 
 ## Contribución
 
